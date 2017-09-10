@@ -1,0 +1,33 @@
+{
+  "name": "alexa-ps4-skill",
+  "version": "1.0.0",
+  "description": "An Amazon Alexa skill for controlling a Sony PlayStation4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CarbonCollins",
+  "contributors": [
+    {
+      "name": "CarbonCollins",
+      "url": "https://github.com/CarbonCollins"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CarbonCollins/alexa-ps4-skill-nodejs"
+  },
+  "bugs": {
+    "url": "https://github.com/CarbonCollins/alexa-ps4-skill-nodejs/issues"
+  },
+  "readme": "README.md",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-app": "^4.1.0",
+    "fs-extra": "^4.0.1",
+    "ps4-waker": "^1.3.3"
+  },
+  "devDependencies": {
+    "express": "^4.15.4"
+  }
+}
