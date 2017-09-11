@@ -1,3 +1,0 @@
-**Notes**:
-- Convert cmd.js from async/await to Promise to fix Node6 support
-
