@@ -6,6 +6,7 @@ const fs = require('fs-extra');
 const { Device, Detector } = require('ps4-waker');
 
 const detectorService = require('./src/service/detector');
+const deviceService = require('./src/service/device');
 
 const app = new Alexa.app('playstation4');
 
@@ -13,6 +14,7 @@ function findDevice(response, session) {
   return new Promise((resolve, reject) => {
     detectorService.findDevice().then((device) => {
       session.set('previous', 'find');
+      session.set('device', device);
       response.say(`I found the ${device.device['host-name']} playstation. do you want to add this one or would you like to find another?`);
       resolve();
     }).catch((err) => {
@@ -49,6 +51,9 @@ app.intent('ResponseYes', {}, (request, response) => {
         return findDevice(response, session);
       case 'find':
         console.log('attempt connection to playstation');
+        const device = session.get('device');
+        deviceService.connectToDevice(device);
+        console.log(device);
         return response.say('connecting');
       default:
         response.shouldEndSession(true);
